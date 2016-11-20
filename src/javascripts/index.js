@@ -25,13 +25,14 @@ let store = createStore(
 
 store.dispatch({...VISIT_WEBSITE, href: window.location.href})
 
+
 //debug
-import { SET_HANDLER } from './actions/global'
+import { SET_DELEGATE } from './actions/delegate'
 
 store.dispatch({
-  ...SET_HANDLER,
-  path: 'state.user.handler.test',
-  handler: _ => {
+  ...SET_DELEGATE,
+  path: 'state.user.delegate.test',
+  delegate: _ => {
     console.log('hello test')
   }
 })

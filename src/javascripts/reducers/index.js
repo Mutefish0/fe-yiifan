@@ -1,11 +1,10 @@
 import { combineReducers } from 'redux'
 import article from './article'
 import user from './user'
-import global from './global'
+import delegate from './delegate'
 
-const reducer = (state, action) => combinedReducer(global(state, action), action)
-
-const combinedReducer = combineReducers({
+const reducer = combineReducers({
+  delegate,
   article,
   user
 })

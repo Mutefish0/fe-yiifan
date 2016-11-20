@@ -35,14 +35,14 @@ const Signin = ({ close, user, test }) => (
   </div>
 )
 
-import { TRIGGER_HANDLER } from '../../actions/global'
+import { TRIGGER_DELEGATE } from '../../actions/delegate'
 
 export default connect(
   state =>  ({user: state.user}),
   dispatch => ({
     test: () => dispatch({
-      ...TRIGGER_HANDLER,
-      path: 'state.user.handler.test'
+      ...TRIGGER_DELEGATE,
+      path: 'state.user.delegate.test'
     })
   })
 )(Signin)
