@@ -2,7 +2,7 @@
 var path = require('path')
 var webpack = require('webpack')
 
-module.exports = {   
+module.exports = {
 	entry: __dirname+'/src/javascripts/index.js',
 	output:{
 		path:__dirname+'/public',
@@ -13,7 +13,7 @@ module.exports = {
 		loaders: [
 		  {
 			test: /\.jsx?$/,
-			loaders  : ['babel?presets[]=es2015&presets[]=es2017&presets[]=react&plugins[]=transform-class-properties'],
+			loaders  : ['babel?presets[]=es2015&presets[]=es2017&presets[]=react&plugins[]=transform-runtime&plugins[]=transform-class-properties'],
 			include: path.join(__dirname,'src'),
 			exclude:path.join(__dirname,'node_modules')
 		  },

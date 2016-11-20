@@ -1,0 +1,103 @@
+$height-user-profile: 254px;
+
+@keyframes head-breath{
+  0%{
+    background: $color-background;
+  }
+  20%{
+    background: $color-success;
+  }
+  40%{
+    background: $color-info;
+  }
+  60%{
+    background: $color-warn;
+  }
+  80%{
+    background: $color-gray;
+  }
+  100%{
+    background: $color-dark;
+  }
+}
+
+.common-webhead {
+  border-radius: 3px;
+  margin: 0.5rem 0;
+  position: relative;
+  height: 300px;
+  animation: head-breath 20s infinite alternate;
+  .sign-in-out{
+    @extend .cursor-pointer;
+    position: absolute;
+    top:16px;
+    right:20px;
+    width: 32px;
+    height: 32px;
+    @extend .button;
+    svg path{
+      fill: white;
+    }
+    &:hover svg path{
+      fill: $color-gray;
+    }
+  }
+
+  .user-profile{
+    width: 100%;
+    height: $height-user-profile;
+    overflow: hidden;
+    position: absolute;
+    top: 100%;
+    margin-top: - $height-user-profile;
+    text-align: center;
+    left: 0;
+    .avatar{
+      width: 128px;
+      height: 128px;
+      margin: 0 auto;
+      position: relative;
+      .source{
+        border-radius: 64px;
+        width: 100%;
+        height: 100%;
+      }
+      .sex{
+        height: 24px;
+        width: 24px;
+        position: absolute;
+        top: 0;
+        right:12px;
+      }
+    }
+    .nickname{
+      @extend .none-select;
+      font-size: 32px;
+      color: white;
+      text-shadow: 1px 1px 8px rgba(0,0,0,0.8);
+      margin-bottom: 4px;
+    }
+    .intro{
+      color:rgba(255,255,255,0.95);
+      font-size: 16px;
+      text-shadow: 1px 1px 8px rgba(0,0,0,0.6);
+      margin-bottom: 12px;
+    }
+    .links{
+      a{
+        margin-right: 16px;
+        @extend .cursor-pointer;
+        svg path{
+          transition: fill 0.5s;
+          fill: $color-dark;
+        }
+      }
+      a:hover{
+        svg path{
+          transition: fill 0.5s;
+          fill: white;
+        }
+      }
+    }
+  }
+}

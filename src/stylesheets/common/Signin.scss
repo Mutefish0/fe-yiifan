@@ -1,0 +1,72 @@
+.common-signin{
+  margin: 0 auto;
+  width:560px;
+  height: 380px;
+  border-radius: 3px;
+  background: $color-background;
+  position: relative;
+  top:50%;
+  margin-top: -190px;
+  position: relative;
+  .close{
+    @extend .cursor-pointer;
+    position: absolute;
+    top:2px;
+    right:-2px;
+    background: transparent;
+    border: none;
+    outline: none;
+    svg path{
+      fill: $color-gray;
+    }
+    &:hover svg path{
+      fill: darken( $color-gray, 10%);
+    }
+  }
+  text-align: center;
+  .avatar{
+    margin-top: 100px;
+    width: 64px;
+    height:64px;
+    border-radius: 32px;
+  }
+  .nickname{
+    @extend .none-select;
+    margin-top: 12px;
+    color: $color-gray;
+    font-size: 18px;
+  }
+  .sign{
+    margin-top: 42px;
+    button{
+      @extend .cursor-pointer;
+      box-shadow: 1px 1px 1px 1px rgba(0,0,0,0.08);
+      border: none;
+      outline: none;
+      border-radius: 12px;
+      background-image: url(/images/next.png);
+      background-size: 100% 100%;
+      height: 24px;
+      width: 24px;
+      vertical-align: middle;
+    }
+    button:hover{
+      background-image: url(/images/next-hover.png);
+    }
+    input{
+      letter-spacing: 2px;
+      font-size: 18px;
+      background: $color-info;
+      color: $color-background;
+      box-shadow: 1px 1px 1px 1px rgba(0,0,0,0.08);
+      border-radius: 3px;
+      text-align: center;
+      height: 22px;
+      width: 135px;
+      border:none;
+      outline: none;
+      vertical-align: middle;
+      margin-right: 8px;
+    }
+  }
+}
