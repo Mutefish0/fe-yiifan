@@ -1,5 +1,7 @@
 import post from '../apis'
 
+import { TRIGGER_DELEGATE } from './delegate'
+
 let origin = 'http://localhost'
 
 export const VISIT_WEBSITE = {
@@ -35,11 +37,21 @@ export const SIGNIN = {
 }
 
 export const SIGNIN_SUCCESS = {
-  type: 'SIGNIN_SUCCESS'
+  type: 'SIGNIN_SUCCESS',
+  asyn: {
+    ...TRIGGER_DELEGATE,
+    path: 'state.user.delegate.signinMessage',
+    param: 'SUCCESS'
+  }
 }
 
 export const SIGNIN_FAILED = {
-  type: 'SIGNIN_FAILED'
+  type: 'SIGNIN_FAILED',
+  asyn: {
+      ...TRIGGER_DELEGATE,
+      path: 'state.user.delegate.signinMessage',
+      param: 'FAILED'
+    }
 }
 
 export const CHECK_SIGNIN = {
@@ -60,5 +72,5 @@ export const SIGNOUT = {
 }
 
 export const SIGNOUT_SUCCESS = {
-  type: SIGNOUT_SUCCESS
+  type: 'SIGNOUT_SUCCESS'
 }

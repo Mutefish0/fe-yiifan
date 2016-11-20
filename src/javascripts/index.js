@@ -25,19 +25,6 @@ let store = createStore(
 
 store.dispatch({...VISIT_WEBSITE, href: window.location.href})
 
-
-//debug
-import { SET_DELEGATE } from './actions/delegate'
-
-store.dispatch({
-  ...SET_DELEGATE,
-  path: 'state.user.delegate.test',
-  delegate: _ => {
-    console.log('hello test')
-  }
-})
-
-
 render(
   <Provider store={store}>
     <App/>

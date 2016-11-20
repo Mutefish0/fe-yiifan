@@ -39,10 +39,7 @@
   .sign{
     margin-top: 42px;
     button{
-      @extend .cursor-pointer;
       box-shadow: 1px 1px 1px 1px rgba(0,0,0,0.08);
-      border: none;
-      outline: none;
       border-radius: 12px;
       background-image: url(/images/next.png);
       background-size: 100% 100%;
@@ -63,10 +60,20 @@
       text-align: center;
       height: 22px;
       width: 135px;
-      border:none;
-      outline: none;
       vertical-align: middle;
       margin-right: 8px;
     }
   }
+}
+
+.signin-message-sucess{
+  margin-top: 22px;
+  color: $color-success;
+  font-size: 14px;
+}
+
+.signin-message-failed{
+  margin-top: 22px;
+  color: $color-warn;
+  font-size: 14px;
 }

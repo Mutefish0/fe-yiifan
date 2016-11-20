@@ -8,10 +8,7 @@ let initialState = {
   intro: undefined,
   weibo: undefined,
   github: undefined,
-  zhihu: undefined,
-  handler: {
-    oo: 'hello'
-  }
+  zhihu: undefined
 }
 
 const user = (state = initialState, action) => {

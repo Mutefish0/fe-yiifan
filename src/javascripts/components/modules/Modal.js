@@ -9,13 +9,22 @@ function browserHeight() {
 }
 
 class Modal extends React.Component {
+  static defaultProps = {
+    closeReceiver: _ => _,
+    openReceiver: _ => _
+  }
 
   constructor(props) {
     super(props)
+
     this.state = {
       show: false
     }
+
     this.onresize = this.onresize.bind(this)
+
+    props.openReceiver(this.openModal.bind(this))
+    props.closeReceiver(this.closeModal.bind(this))
   }
 
   componentWillUnmount() {
@@ -26,38 +35,37 @@ class Modal extends React.Component {
     this.forceUpdate()
   }
 
+  hello() {
+    console.log('yes')
+  }
+
+  openModal() {
+    this.refs.overlay.style.zIndex = 1000
+    window.addEventListener('resize', this.onresize)
+    this.setState({show: true})
+  }
+
+  closeModal() {
+    setTimeout(_ => {
+      this.refs.overlay.style.zIndex = -1000
+    }, 500)
+    window.removeEventListener('resize', this.onresize)
+    this.setState({show: false})
+  }
+
   render() {
+      let renderEntry
+      if(this.props.component)
+        renderEntry = (<this.props.component close={this.closeModal.bind(this)} />)
+      else if(this.props.children)
+        renderEntry = this.props.children
       return (
-        <div>
-          <span
-            className={this.props.className}
-            onClick = { e => {
-              this.refs.overlay.style.zIndex = 1000
-              window.addEventListener('resize', this.onresize)
-              this.setState({show: true})
-          }}
-          >
-            { this.props.children }
-          </span>
-
-          <div
-            ref="overlay"
-            style={{height: browserHeight(), width: browserWidth()}}
-            className={`module-modal module-modal-${this.state.show? 'show': 'hide'}`}
-          >
-            {
-              <this.props.component
-                close={ e => {
-                    setTimeout(_ => {
-                      this.refs.overlay.style.zIndex = -1000
-                    }, 500)
-                    window.removeEventListener('resize', this.onresize)
-                    this.setState({show: false})
-                  }}
-              />
-            }
-          </div>
-
+        <div
+          ref='overlay'
+          style={{height: browserHeight(), width: browserWidth()}}
+          className={`module-modal module-modal-${this.state.show? 'show': 'hide'}`}
+        >
+          {renderEntry}
         </div>
     )
   }
