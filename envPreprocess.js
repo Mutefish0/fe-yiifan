@@ -10,7 +10,6 @@ let publicPath = webpackConfig.output.publicPath.replace(/([^/])$/,'$1/')
 let bundleName = webpackConfig.output.filename
 let entryPath = webpackConfig.entry .replace(/(\/[^\/]*)$/, '/')
 
-
 let regexVariableName = /^[a-zA-Z_][a-zA-Z0-9_]*$/
 
 function regexFindAssignmentExpression(leftValue) {
