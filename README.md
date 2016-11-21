@@ -12,4 +12,4 @@
 
 # 开发 (本地)
   1. 开启热加载和编译 `npm start`
-  2. 浏览器访问`http:localhost:8080`
+  2. 浏览器访问`http://localhost:8080`
