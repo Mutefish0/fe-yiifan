@@ -2,12 +2,10 @@ import post from '../apis'
 
 import { TRIGGER_DELEGATE } from './delegate'
 
-let origin = 'http://localhost'
-
 export const VISIT_WEBSITE = {
   type: 'VISIT_WEBSITE',
   asyn: async function({ href }) {
-    let resp = await post(origin + '/visit-website-user', { href })
+    let resp = await post('/visit-website-user', { href })
     if(resp.ok == 1) return {
       ...VISIT_WEBSITE_SUCCESS,
       user: resp.data
@@ -30,7 +28,7 @@ export const VISIT_WEBSITE_FAILED = {
 export const SIGNIN = {
   type: 'SIGNIN',
   asyn: async function({ password }) {
-    let resp = await post(origin + '/sign-in', { password })
+    let resp = await post('/sign-in', { password })
     if(resp.ok == 1) return SIGNIN_SUCCESS
     else return SIGNIN_FAILED
   }
@@ -57,7 +55,7 @@ export const SIGNIN_FAILED = {
 export const CHECK_SIGNIN = {
   type: 'CHECK_SIGNIN',
   asyn: async function() {
-    let resp = await post(origin + '/check-sign-in')
+    let resp = await post('/check-sign-in')
     if(resp.ok == 1) return SIGNIN_SUCCESS
     else return SIGNIN_FAILED
   }
@@ -66,7 +64,7 @@ export const CHECK_SIGNIN = {
 export const SIGNOUT = {
   type: 'SIGNOUT',
   asyn: async function() {
-    let resp = await post(origin + '/sign-out')
+    let resp = await post('/sign-out')
     if(resp.ok == 1) return SIGNOUT_SUCCESS
   }
 }

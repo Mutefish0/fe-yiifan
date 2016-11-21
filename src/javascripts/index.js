@@ -10,17 +10,18 @@ import '../stylesheets/index.scss'
 
 import { VISIT_WEBSITE } from './actions/user'
 
-
-
+import env from './env'
 
 
 let store = createStore(
   reducer,
-  compose(
+  env.dev?
+   compose(
     applyMiddleware(reduxAsyn),
     // redux dev-tool
     window.devToolsExtension ? window.devToolsExtension() : f => f
-  )
+  ):
+  applyMiddleware(reduxAsyn)
 )
 
 store.dispatch({...VISIT_WEBSITE, href: window.location.href})

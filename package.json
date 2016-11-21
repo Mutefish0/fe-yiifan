@@ -3,8 +3,8 @@
   "version": "0.0.0",
   "description": "个人网站前端部分",
   "scripts": {
-    "start": "webpack-dev-server --hot --inline --progress --colors --history-api-fallback --content-base public/ --define process.env.NODE_ENV='\"development\"'",
-    "build": "webpack --progress --colors -p --define process.env.NODE_ENV='\"production\"'"
+    "start": "node envPreprocess --development & webpack-dev-server --hot --inline --progress --colors --history-api-fallback --content-base public/ --define process.env.NODE_ENV='\"development\"'",
+    "build": "node envPreprocess --production process.env.environment=production & webpack --progress --colors -p --define process.env.NODE_ENV='\"production\"'"
   },
   "repository": {
     "type": "git"

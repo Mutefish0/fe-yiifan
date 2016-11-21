@@ -36,10 +36,10 @@ $height-user-profile: 254px;
     height: 32px;
     @extend .button;
     svg path{
-      fill: white;
+      fill: $color-gray;
     }
     &:hover svg path{
-      fill: $color-gray;
+      fill: white;
     }
   }
 

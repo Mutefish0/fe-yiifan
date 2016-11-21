@@ -1,6 +1,10 @@
 import request from 'superagent'
+import env from '../env'
 
-function postRequest(url, form) {
+let apiOrigin = env.apiOrigin
+
+function postRequest(rest, form) {
+  let url = /\:\/\//.test(rest)? rest: apiOrigin + rest
   if(form)
     return new Promise(resolve => {
       request.post(url).withCredentials().type('form').send(form).then(resp => resolve(resp.body))
