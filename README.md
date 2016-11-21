@@ -2,7 +2,7 @@
 个人网站重构-前端部分
 
 # 安装
-  1. 克隆仓库 `git clone https://github.com/Mutefish0/be-yiifan`
+  1. 克隆仓库 `git clone https://github.com/Mutefish0/fe-yiifan`
   2. 安装 `npm install`
 
 # 编译部署 (服务器端)
