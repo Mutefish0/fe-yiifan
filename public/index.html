@@ -11,15 +11,5 @@
     <div id="app">
     </div>
   </body>
-  <script type="text/javascript">
-    var __ENVIRONMENT__ = 'development'
-    var __PUBLICPATH__ = '/assets/'
-    var __BUNDLENAME__ = 'bundle.js'
-    var bundleScript = document.createElement('script')
-    if(__ENVIRONMENT__ == 'development')
-      bundleScript.src = __PUBLICPATH__ + __BUNDLENAME__
-    else if(__ENVIRONMENT__ == 'production')
-      bundleScript.src = './' + __BUNDLENAME__ 
-    document.body.appendChild(bundleScript)
-  </script>
+  <script type="text/javascript" src="./bundle.js"></script>
 </html>

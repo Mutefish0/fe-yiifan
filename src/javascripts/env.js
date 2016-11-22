@@ -1,4 +1,4 @@
-let __ENVIRONMENT__ = 'development'
+let __ENVIRONMENT__ = window.__ENVIRONMENT__
 
 let exportObject = {
   development: {
