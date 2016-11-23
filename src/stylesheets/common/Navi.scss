@@ -1,0 +1,29 @@
+.common-navi{
+  margin-top: 12px;
+  margin-bottom: 24px;
+  text-align: center;
+  .navi-item{
+    text-decoration: none;
+    color: $color-gray;
+    font-weight: bold;
+    margin: 0 8rem;
+    position: relative;
+    &:after{
+      position: absolute;
+      bottom: -14px;
+      left: 50%;
+      margin-left: -4px;
+      content: '';
+      width: 8px;
+      height: 8px;
+      border-radius: 6px;
+      background: $color-gray;
+    }
+  }
+  .navi-item-active{
+    color: $color-success;
+    &:after{
+      background: $color-success;
+    }
+  }
+}
