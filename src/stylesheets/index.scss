@@ -2,6 +2,12 @@
 
 @import "./common/Webhead";
 @import "./common/Signin";
+@import "./common/Navi";
 
 @import "./modules/Modal";
 @import "./modules/Toast";
+
+@import "./views/Article";
+@import "./views/Music";
+@import "./views/Picture";
+@import "./views/Todo";

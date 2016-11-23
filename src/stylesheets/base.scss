@@ -5,6 +5,22 @@ $color-warn: #e74635;
 $color-dark: #303030;
 $color-gray: #5f6c72;
 
+::selection {
+    background:$color-dark;
+    color: $color-background;
+}
+
+::-moz-selection {
+    background:$color-dark;
+    color: $color-background;
+}
+
+::-webkit-selection {
+    background: $color-dark;
+    color: $color-background;
+}
+
+
 .none-select{
   -moz-user-select:none;/*火狐*/
   -webkit-user-select:none;/*webkit浏览器*/
@@ -32,7 +48,7 @@ html, body, .app{
   padding: 0;
   background: #f1f1f1;
   font-size: 16px;
-  font-family: "PingFang SC", "Microsoft Yahei", sans-serif;
+  font-family:"PingFang SC", "Microsoft Yahei", sans-serif;
   @extend .cursor-default;
 }
 
