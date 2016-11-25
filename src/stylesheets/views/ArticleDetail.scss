@@ -1,0 +1,30 @@
+.view-article-detail{
+  margin: 18px 0;
+  background: white;
+  .title{
+    font-size: 32px;
+    line-height: 92px;
+    color: $color-gray;
+    padding:  0 24px;
+    border-left: 6px solid $color-gray;
+    margin-bottom: 18px;
+  }
+  .content{
+    padding: 0 30px;
+    min-height: 420px;
+    font-size: 16px;
+    overflow: hidden;
+    margin-bottom: 18px;
+  }
+  .foot{
+    font-size: 14px;
+    color: $color-gray;
+    line-height: 38px;
+    margin: 0 36px;
+    border-top: 2px solid $color-background;
+    overflow: hidden;
+    .date{
+      float: right;
+    }
+  }
+}
