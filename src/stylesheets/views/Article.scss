@@ -1,3 +1,94 @@
+@keyframes remove-article {
+  0%{
+    height: 547px;
+    opacity: 1;
+  }
+  100%{
+    opacity: 0;
+    height: 0px;
+  }
+}
+
+.article-item-enter {
+  animation: remove-article 0.8s reverse;
+}
+
+.article-item-leave {
+  .mask{
+    display: none;
+  }
+  animation: remove-article 0.8s;
+}
+
 .view-article{
-  text-align: center;
+  margin-top: 48px;
+  .create{
+    @extend .matieral-button;
+    @extend .none-default-link;
+    display: block;
+    line-height: 38px;
+    width: 120px;
+    margin: 0 auto;
+    text-align: center;
+    border-radius: 32px;
+    color: $color-background;
+  }
+  .item{
+    overflow: hidden;
+    position: relative;
+    margin: 18px 0;
+    background: white;
+    transition: box-shadow 0.8s;
+    box-shadow: 0px 0px 0px rgba(0,0,0,0.2);
+    &:hover{
+      box-shadow: 1px 1px 4px rgba(0,0,0,0.2);
+    }
+    .title{
+      text-decoration: none;
+      display: block;
+      font-size: 32px;
+      line-height: 92px;
+      color: $color-gray;
+      padding:  0 24px;
+      margin-bottom: 18px;
+      border-left: 6px solid $color-gray;
+      transition: color 0.6s;
+      &:hover{
+        color: $color-info;
+        transition: color 0.6s;
+      }
+    }
+    .content{
+      padding: 0 30px;
+      height: 380px;
+      font-size: 16px;
+      overflow: hidden;
+      margin-bottom: 18px;
+    }
+    .foot{
+      font-size: 14px;
+      color: $color-gray;
+      line-height: 38px;
+      margin: 0 36px;
+      border-top: 2px solid $color-background;
+      overflow: hidden;
+      .date{
+        float: right;
+      }
+      .delete{
+        border-radius: 12px;
+        padding: 0 8px;
+        @include matieral-button($color-warn);
+        color: $color-background;
+      }
+    }
+    .mask{
+      position: absolute;
+      bottom: 54px;
+      left: 0;
+      height: 72px;
+      width: 100%;
+      background: linear-gradient(rgba(255,255,255,0),rgba(255,255,255,0.72),white);
+    }
+  }
 }

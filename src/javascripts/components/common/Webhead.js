@@ -22,8 +22,8 @@ const Webhead = ({ user, signout }) => {
         component={Signin}
       />
 
-    <span onClick={ user.signin? signout: openModal } className="sign-in-out">
-        { user.signin? LogoutSvg: LoginSvg }
+    <span onClick={ user.signin && signout || openModal } className="sign-in-out">
+        { user.signin && LogoutSvg || LoginSvg }
       </span>
 
       <div className="user-profile">

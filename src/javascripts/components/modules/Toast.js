@@ -19,7 +19,10 @@ class Toast extends React.Component {
     this.closeToast = this.closeToast.bind(this)
     this.toast = this.toast.bind(this)
 
-    props.toastReceiver(this.toast)
+  }
+
+  componentDidMount() {
+    this.props.toastReceiver(this.toast)
   }
 
   toast(param) {
@@ -42,7 +45,7 @@ class Toast extends React.Component {
           module-toast-${this.state.show? 'show': 'hide'}`
         }
       >
-       {<this.props.component param={this.state.param}/>}
+       {this.props.component && <this.props.component param={this.state.param}/>}
       </div>
     )
   }

@@ -12,18 +12,25 @@
       position: absolute;
       bottom: -14px;
       left: 50%;
-      margin-left: -4px;
+      margin-left: -3px;
       content: '';
-      width: 8px;
-      height: 8px;
+      width: 6px;
+      height: 6px;
       border-radius: 6px;
       background: $color-gray;
+      transition: all 0.2s;
     }
   }
   .navi-item-active{
     color: $color-success;
     &:after{
       background: $color-success;
+      width: 24px;
+      height: 2px;
+      border-radius: 8px;
+      margin-left: -12px;
+      bottom: -12px;
+      transition: all 0.2s;
     }
   }
 }
