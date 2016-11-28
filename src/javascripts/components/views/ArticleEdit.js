@@ -80,7 +80,7 @@ const ArticleEdit = ({ isNew, oldArticle, create, edit }) => {
       /> <br/>
       <MarkdownEditor
         obtainSrcTextReceiver={ ost => obtainSrcText = ost }
-        defaultValue={oldArticle.content}
+        defaultValue={!isNew && oldArticle.content || ''}
       />
       <div className="action">
         <span
