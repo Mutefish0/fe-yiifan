@@ -1,6 +1,7 @@
 import post from '../apis'
 import { browserHistory } from 'react-router'
-import { TRIGGER_DELEGATE } from './delegate'
+
+import { REQUEST_ARTICLES } from './article'
 
 export const VISIT_WEBSITE = {
   type: 'VISIT_WEBSITE',
@@ -35,20 +36,12 @@ export const SIGNIN = {
 
 export const SIGNIN_SUCCESS = {
   type: 'SIGNIN_SUCCESS',
-  asyn: {
-    ...TRIGGER_DELEGATE,
-    path: 'state.user.delegate.signinMessage',
-    param: 'SUCCESS'
-  }
+  asyn: REQUEST_ARTICLES
 }
 
 export const SIGNIN_FAILED = {
   type: 'SIGNIN_FAILED',
-  asyn: {
-      ...TRIGGER_DELEGATE,
-      path: 'state.user.delegate.signinMessage',
-      param: 'FAILED'
-    }
+  asyn: REQUEST_ARTICLES 
 }
 
 export const CHECK_SIGNIN = {

@@ -20,6 +20,7 @@ const Webhead = ({ user, signout }) => {
       <Modal
         openReceiver={open => openModal = open}
         component={Signin}
+        shouldClose={user.signin}
       />
 
     <span onClick={ user.signin && signout || openModal } className="sign-in-out">

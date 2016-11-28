@@ -89,11 +89,7 @@ export default connect(
     requesting: state.article.isRequesting,
     signin: state.user.signin
   }),
-  dispatch => {
-    //每次挂载时都获取一次 (React-Router路由时会重新挂载组件)
-    dispatch(REQUEST_ARTICLES)
-    return {
-      deleteArticle: id => dispatch({...DELETE_ARTICLE, id})
-    }
-  }
+  dispatch => ({
+    deleteArticle: id => dispatch({...DELETE_ARTICLE, id})
+  })
 )(Article)

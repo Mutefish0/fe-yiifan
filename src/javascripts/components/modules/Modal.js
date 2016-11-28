@@ -11,7 +11,8 @@ function browserHeight() {
 class Modal extends React.Component {
   static defaultProps = {
     closeReceiver: _ => _,
-    openReceiver: _ => _
+    openReceiver: _ => _,
+    shouldClose: false
   }
 
   constructor(props) {
@@ -27,16 +28,16 @@ class Modal extends React.Component {
     props.closeReceiver(this.closeModal.bind(this))
   }
 
+  componentWillReceiveProps(nextProps) {
+    if(nextProps.shouldClose) this.closeModal()
+  }
+
   componentWillUnmount() {
     window.removeEventListener('resize', this.onresize)
   }
 
   onresize() {
     this.forceUpdate()
-  }
-
-  hello() {
-    console.log('yes')
   }
 
   openModal() {

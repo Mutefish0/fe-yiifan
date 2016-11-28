@@ -14,7 +14,11 @@ import {
   EDIT_ARTICLE_FAILED
 } from '../actions/article'
 
-import { SIGNOUT_SUCCESS } from '../actions/user'
+import {
+  SIGNIN_SUCCESS,
+  SIGNIN_FAILED,
+  SIGNOUT_SUCCESS
+} from '../actions/user'
 
 const message = (state = {}, action) => {
   switch (action.type) {
@@ -52,6 +56,18 @@ const message = (state = {}, action) => {
       return {
         type: EDIT_ARTICLE_FAILED.type,
         msg: action.msg || '编辑失败',
+        style: 'failed'
+      }
+    case SIGNIN_SUCCESS.type:
+      return {
+        type: SIGNIN_SUCCESS.type,
+        msg: '登录成功',
+        style: 'success'
+      }
+    case SIGNIN_FAILED.type:
+      return {
+        type: SIGNIN_FAILED.type,
+        msg: '登录失败',
         style: 'failed'
       }
     case SIGNOUT_SUCCESS.type:

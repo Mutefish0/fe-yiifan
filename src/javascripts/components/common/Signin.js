@@ -1,22 +1,11 @@
 import React from 'react'
 import { connect } from 'react-redux'
 
-import { SET_DELEGATE } from '../../actions/delegate'
 import { SIGNIN } from '../../actions/user'
 
 import CloseSvg from '../modules/CloseSvg'
-import Toast from '../modules/Toast'
 
-const SigninMessage = ({ param }) => {
-  if(param == 'SUCCESS') return (
-    <div className="signin-message-sucess">登录成功</div>
-  )
-  else return (
-    <div className="signin-message-failed">登录失败</div>
-  )
-}
-
-const Signin = ({ close, user, setMessageDelegate, signin }) => {
+const Signin = ({ close, user, signin }) => {
   let inputPassword
   return(
     <div className="common-signin">
@@ -35,29 +24,12 @@ const Signin = ({ close, user, setMessageDelegate, signin }) => {
         />
         <button onClick={e => signin(inputPassword.value)} />
       </div>
-      <Toast
-        duration={500}
-        toastReceiver={toast => setMessageDelegate(toast)}
-        afterToast = {param => {
-          //关闭弹层
-          if(param == 'SUCCESS') close()
-        }}
-        component={SigninMessage}
-      />
     </div>
   )
 }
 export default connect(
   state =>  ({user: state.user}),
   dispatch => ({
-    setMessageDelegate: delegate => dispatch({
-      ...SET_DELEGATE,
-      path: 'state.user.delegate.signinMessage',
-      delegate
-    }),
-    signin: password => dispatch({
-      ...SIGNIN,
-      password
-    })
+    signin: password => dispatch({...SIGNIN,password})
   })
 )(Signin)
