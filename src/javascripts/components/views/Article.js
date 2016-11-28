@@ -3,6 +3,9 @@ import { connect } from 'react-redux'
 import { Link } from 'react-router'
 import { REQUEST_ARTICLES, DELETE_ARTICLE } from '../../actions/article'
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
+import MarkdownIt from 'markdown-it'
+
+let md = MarkdownIt()
 
 
 export function parseDate(timestamp) {
@@ -16,7 +19,7 @@ export function parseDate(timestamp) {
     '日 ',
     date.getHours(),
     ':',
-    date.getMinutes()
+    date.getMinutes().toString().replace(/^(\d)$/,'0$1')
   ].join('')
 }
 
@@ -24,8 +27,18 @@ export function parseDate(timestamp) {
 const Item = ({ className, article, signin, deleteArticle }) => (
   <div className={`item ${className || ''}`}>
     <Link to={`/article/detail/${article._id}`} className="title">{ article.title }</Link>
-    <div className="content">{ article.content }</div>
+    <div
+      className="content"
+      dangerouslySetInnerHTML={{__html: md.render(article.content)}}>
+    </div>
     <div className="foot">
+      <Link
+        className="edit"
+        style={{display: signin && 'inline' || 'none'}}
+        to={`/article/edit/${article._id}`}
+      >
+        <i className="fa fa-edit"/> 编辑文章
+      </Link>
       <span
         className="delete"
         style={{display: signin && 'inline' || 'none'}}

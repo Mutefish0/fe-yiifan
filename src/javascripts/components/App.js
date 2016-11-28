@@ -9,6 +9,7 @@ import ArticleEdit from './views/ArticleEdit'
 import Picture from './views/Picture'
 import Music from './views/Music'
 import Todo from './views/Todo'
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 
 const Frame = ({children}) => (
   <div className='root'>

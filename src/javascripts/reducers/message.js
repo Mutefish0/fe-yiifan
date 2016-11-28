@@ -9,7 +9,9 @@ import {
   DELETE_ARTICLE_SUCCESS,
   DELETE_ARTICLE_FAILED,
   CREATE_ARTICLE_SUCCESS,
-  CREATE_ARTICLE_FAILED
+  CREATE_ARTICLE_FAILED,
+  EDIT_ARTICLE_SUCCESS,
+  EDIT_ARTICLE_FAILED
 } from '../actions/article'
 
 import { SIGNOUT_SUCCESS } from '../actions/user'
@@ -38,6 +40,18 @@ const message = (state = {}, action) => {
       return {
         type: CREATE_ARTICLE_FAILED.type,
         msg: action.msg || '创建失败',
+        style: 'failed'
+      }
+    case EDIT_ARTICLE_SUCCESS.type:
+      return {
+        type: EDIT_ARTICLE_SUCCESS.type,
+        msg: action.msg || '修改生效',
+        style: 'success'
+      }
+    case EDIT_ARTICLE_FAILED.type:
+      return {
+        type: EDIT_ARTICLE_FAILED.type,
+        msg: action.msg || '编辑失败',
         style: 'failed'
       }
     case SIGNOUT_SUCCESS.type:

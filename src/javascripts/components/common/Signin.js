@@ -36,12 +36,13 @@ const Signin = ({ close, user, setMessageDelegate, signin }) => {
         <button onClick={e => signin(inputPassword.value)} />
       </div>
       <Toast
-      toastReceiver={toast => setMessageDelegate(toast)}
-      afterToast = {param => {
-        //关闭弹层
-        if(param == 'SUCCESS') close()
-      }}
-      component={SigninMessage}
+        duration={500}
+        toastReceiver={toast => setMessageDelegate(toast)}
+        afterToast = {param => {
+          //关闭弹层
+          if(param == 'SUCCESS') close()
+        }}
+        component={SigninMessage}
       />
     </div>
   )

@@ -43,7 +43,7 @@ button, .button{
 }
 
 html, body, .app{
-  color:rgba(0,0,0,0.82);
+  color:rgba(0,0,0,0.76);
   width: 100%;
   margin: 0;
   padding: 0;
@@ -91,4 +91,19 @@ input{
 .root{
   width: 1180px;
   margin: 0 auto;
+}
+
+@keyframes router-fade-in{
+  0%{
+    opacity: 0;
+    transform: scale3d(0,0,0);
+  }
+  100%{
+    opacity: 1;
+    transform: scale3d(1,1,1);
+  }
+}
+
+.router-fade-in{
+  animation: router-fade-in 1s ease-out;
 }

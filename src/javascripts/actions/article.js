@@ -53,3 +53,20 @@ export const CREATE_ARTICLE_SUCCESS = {
 export const CREATE_ARTICLE_FAILED = {
   type: 'CREATE_ARTICLE_FAILED'
 }
+
+export const EDIT_ARTICLE = {
+  type: 'EDIT_ARTICLE',
+  asyn: async function({ id, title, content }) {
+    let resp = await post('/edit-article', { id, title, content })
+    return resp.ok && EDIT_ARTICLE_SUCCESS || EDIT_ARTICLE_FAILED
+  }
+}
+
+export const EDIT_ARTICLE_SUCCESS = {
+  type: 'EDIT_ARTICLE_SUCCESS',
+  asyn: () => browserHistory.push('/article')
+}
+
+export const EDIT_ARTICLE_FAILED = {
+  type: 'EDIT_ARTICLE_FAILED'
+}

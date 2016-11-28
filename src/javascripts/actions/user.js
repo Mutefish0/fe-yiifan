@@ -1,6 +1,5 @@
 import post from '../apis'
 import { browserHistory } from 'react-router'
-
 import { TRIGGER_DELEGATE } from './delegate'
 
 export const VISIT_WEBSITE = {

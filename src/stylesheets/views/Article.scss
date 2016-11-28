@@ -1,5 +1,12 @@
 @keyframes remove-article {
   0%{
+    transform: scale3d(1,1,1);
+  }
+  40%{
+    transform: scale3d(1.1,1.1,1.1);
+  }
+  50%{
+    transform: scale3d(1,1,1);
     height: 547px;
     opacity: 1;
   }
@@ -21,6 +28,7 @@
 }
 
 .view-article{
+  @extend .router-fade-in;
   margin-top: 48px;
   .create{
     @extend .matieral-button;
@@ -79,6 +87,14 @@
         border-radius: 12px;
         padding: 0 8px;
         @include matieral-button($color-warn);
+        color: $color-background;
+      }
+      .edit{
+        margin-right: 8px;
+        border-radius: 12px;
+        @extend .none-default-link;
+        padding: 0 8px;
+        @include matieral-button($color-info);
         color: $color-background;
       }
     }

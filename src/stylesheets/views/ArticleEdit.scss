@@ -1,0 +1,92 @@
+.markdown-render{
+  a{
+    @extend .none-default-link;
+  }
+}
+
+
+@keyframes editor-mode-fadeIn{
+  from{
+    opacity: 0;
+  }
+  to{
+    opacity: 1;
+  }
+}
+
+.view-article-edit{
+  @extend .router-fade-in;
+  .title{
+    box-sizing: border-box;
+    width: 100%;
+    line-height: 48px;
+    padding: 0 18px;
+    margin: 18px 0;
+    font-size: 26px;
+    font-family: 'Microsoft Yahei';
+    color: $color-gray;
+    border-radius: 3px;
+  }
+
+  .markdown-editor{
+    .menu{
+      height: 42px;
+      border-radius: 3px 3px 0 0;
+      background: rgba(255,255,255,0.65);
+      span{
+        @extend .cursor-pointer;
+        color: $color-gray;
+        display: inline-block;
+        height: 100%;
+        line-height: 42px;
+        padding: 0 12px;
+        font-size: 13px;
+      }
+      .active{
+        background: white;
+        border-right: 1px solid $color-background;
+        border-left: 1px solid $color-background;
+        color: $color-success;
+      }
+    }
+    .write,.preview{
+      animation: editor-mode-fadeIn 0.6s;
+      background: white;
+      box-sizing: border-box;
+      width: 100%;
+      min-height: 580px;
+      padding: 12px;
+      font-size: 16px;
+      font-family: inherit;
+      border: none;
+      outline: none;
+      resize: none;
+      border-radius:0 0 3px 3px;
+      &::selection {
+          background: $color-dark;
+          color: $color-info;
+      }
+    }
+    .preview{
+      @extend .markdown-render;
+    }
+  }
+
+  .action{
+    margin: 24px 0;
+    text-align: center;
+    color: $color-background;
+    .submit{
+      @extend .matieral-button;
+      padding: 8px 48px;
+      margin-right: 12px;
+      border-radius: 3px;
+    }
+    .cancel{
+      @extend .none-default-link;
+      @include matieral-button($color-warn);
+      padding: 8px 48px;
+      border-radius: 3px;
+    }
+  }
+}
