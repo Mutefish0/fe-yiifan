@@ -16,3 +16,5 @@
 
 # 在线预览(正在开发中)
   [Demo](http://predeploy.yiifan.xyz)
+
+  登录密码 `123456`
