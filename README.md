@@ -7,7 +7,7 @@
 
 # 编译部署 (服务器端)
   1. 拉取更新 `git pull`
-  2. 编译 `npm run build`
+  2. 编译 `npm run build` (如果package包更新了, 需要重新执行一遍 `npm install`, 不然会报错)
   3. 部署`public`文件夹即可
 
 # 开发 (本地)
