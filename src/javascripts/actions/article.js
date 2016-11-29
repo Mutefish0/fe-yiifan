@@ -47,7 +47,10 @@ export const CREATE_ARTICLE = {
 
 export const CREATE_ARTICLE_SUCCESS = {
   type: 'CREATE_ARTICLE_SUCCESS',
-  asyn: () => browserHistory.push('/article')
+  asyn: () => {
+    browserHistory.push('/article')
+    return REQUEST_ARTICLES
+  }
 }
 
 export const CREATE_ARTICLE_FAILED = {
