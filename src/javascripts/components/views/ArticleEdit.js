@@ -2,9 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router'
 import { CREATE_ARTICLE, EDIT_ARTICLE } from '../../actions/article'
-import MarkdownIt from 'markdown-it'
-
-let md = MarkdownIt()
+import { Mdrender } from './Article'
 
 class MarkdownEditor extends React.Component {
   static defaultProps = {
@@ -19,17 +17,29 @@ class MarkdownEditor extends React.Component {
       mode: 'write', // preview
     }
     this.srcText = this.props.defaultValue
+    this.previousScrollTop = {
+      write: 0,
+      preview: 0
+    }
 
     this.props.obtainHtmlReceiver(this.obtainHtml.bind(this))
     this.props.obtainSrcTextReceiver(this.obtainSrcText.bind(this))
   }
 
   obtainHtml() {
-    return md.render(this.srcText)
+    return Mdrender(this.srcText)
   }
 
   obtainSrcText() {
     return this.srcText
+  }
+
+  componentWillUpdate() {
+    this.previousScrollTop[this.state.mode] = this.refs[this.state.mode].scrollTop
+  }
+
+  componentDidUpdate() {
+    this.refs[this.state.mode].scrollTop = this.previousScrollTop[this.state.mode]
   }
 
   render() {
@@ -52,13 +62,15 @@ class MarkdownEditor extends React.Component {
         {
           this.state.mode == 'write' &&
           <textarea
+            ref="write"
             className="write"
             defaultValue={this.srcText}
             onChange={e => this.srcText = e.target.value}
           /> ||
           <div
+            ref="preview"
             className="preview"
-            dangerouslySetInnerHTML={{__html: md.render(this.srcText)}}
+            dangerouslySetInnerHTML={{__html: Mdrender(this.srcText)}}
           >
           </div>
         }

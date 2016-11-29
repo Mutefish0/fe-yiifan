@@ -4,8 +4,28 @@ import { Link } from 'react-router'
 import { REQUEST_ARTICLES, DELETE_ARTICLE } from '../../actions/article'
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 import MarkdownIt from 'markdown-it'
+import hljs from 'highlight.js'
 
-let md = MarkdownIt()
+let md = MarkdownIt({
+  linkfy: true,
+  breaks: true,
+  highlight: function (str, lang) {
+   if (lang && hljs.getLanguage(lang)) {
+     try {
+       return hljs.highlight(lang, str).value;
+     } catch (__) {}
+   }
+
+   return ''; // use external default escaping
+ }
+})
+
+export function Mdrender(srcText) {
+  let rendered = md.render(srcText)
+  //a标签在新窗口打开
+  rendered = rendered.replace(/<a (\S*?)>/g,'<a $1 target=\"_blank\">')
+  return rendered
+}
 
 
 export function parseDate(timestamp) {
@@ -24,12 +44,21 @@ export function parseDate(timestamp) {
 }
 
 
+
 const Item = ({ className, article, signin, deleteArticle }) => (
   <div className={`item ${className || ''}`}>
     <Link to={`/article/detail/${article._id}`} className="title">{ article.title }</Link>
-    <div
-      className="content"
-      dangerouslySetInnerHTML={{__html: md.render(article.content)}}>
+    <div className="content-wraper">
+      <div
+        className="content"
+        dangerouslySetInnerHTML={{__html: Mdrender(article.content)}}
+      >
+      </div>
+      <div className="mask">
+        <Link className="btn-detail" to={`/article/detail/${article._id}`}>
+          <i className="fa fa-ellipsis-h fa-2x"/>
+        </Link>
+      </div>
     </div>
     <div className="foot">
       <Link
@@ -48,7 +77,6 @@ const Item = ({ className, article, signin, deleteArticle }) => (
       </span>
       <span className="date"> 编辑于 { parseDate(article.date) }</span>
     </div>
-    <div className="mask"></div>
   </div>
 )
 

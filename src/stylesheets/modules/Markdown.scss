@@ -1,0 +1,105 @@
+@import "./MonokaiSublime.scss";
+
+.markdown-render{
+  h1,h2,h3,h4,h5{
+    color: rgba($color-dark, 0.9);
+    padding: 0;
+    margin: 14px 0;
+  }
+  p{
+    padding: 0;
+    margin: 14px 0;
+  }
+  ul{
+    margin: 14px 0;
+    padding-left: 32px;
+  }
+  a{
+    @extend .none-default-link;
+    color: $color-info;
+    transition: color 0.6s;
+    &:hover{
+      color: darken($color-info, 15%);
+      transition: color 0.6s;
+      text-decoration: underline;
+    }
+  }
+  blockquote{
+    display: inline-block;
+    border-radius: 3px;
+    margin: 14px 0;
+    margin: 0;
+    padding: 12px 22px;
+    background: $color-background;
+    color: $color-gray;
+    &:before{
+      content: '';
+      display: block;
+      height: 18px;
+      background: url(/images/quote-left.png);
+      background-size: 18px 18px;
+      background-repeat: no-repeat;
+      background-position: top left;
+      position: relative;
+      left: -16px;
+    }
+    &:after{
+      content: '';
+      display: block;
+      height: 18px;
+      background: url(/images/quote-right.png);
+      background-size: 18px 18px;
+      background-repeat: no-repeat;
+      background-position: bottom right;
+      position: relative;
+      right: -16px;
+    }
+    p{
+      margin: 0;
+    }
+  }
+  hr{
+    padding: 0;
+    height: 0;
+    margin: 14px 0;
+    border: none;
+    border-top: 1px solid $color-background;
+  }
+  img{
+    max-width: 100%;
+    border-radius: 3px;
+    border: 1px solid $color-background;
+    box-shadow: 1px 1px 2px $color-background;
+  }
+  table{
+    font-size: 14px;
+    background: $color-background;
+    border-radius: 3px;
+    border-spacing: 0;
+    border-collapse: collapse;
+    th,td{
+      border: 1px solid rgba($color-success, 0.2);
+      padding: 8px 16px;
+      border-collapse: collapse;
+    }
+    thead{
+      color: $color-gray;
+      border-collapse: collapse;
+    }
+  }
+  code{
+    background: $color-gray;
+    color: white;
+    padding: 1px 2px;
+    border-radius: 2px;
+  }
+  pre code{
+    display: block;
+    background: $color-dark;
+    padding: 16px;
+    border-radius: 3px;
+    color: $color-background;
+    font-family: Menlo, Consolas, monospace;
+    @extend .hljs;
+  }
+}

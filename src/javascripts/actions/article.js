@@ -64,7 +64,10 @@ export const EDIT_ARTICLE = {
 
 export const EDIT_ARTICLE_SUCCESS = {
   type: 'EDIT_ARTICLE_SUCCESS',
-  asyn: () => browserHistory.push('/article')
+  asyn: () => {
+    browserHistory.push('/article')
+    return REQUEST_ARTICLES
+  }
 }
 
 export const EDIT_ARTICLE_FAILED = {

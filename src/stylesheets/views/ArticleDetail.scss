@@ -16,6 +16,7 @@
     font-size: 16px;
     overflow: hidden;
     margin-bottom: 18px;
+    @extend .markdown-render;
   }
   .foot{
     font-size: 14px;
