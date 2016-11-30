@@ -5,8 +5,8 @@ import { REQUEST_ARTICLES } from './article'
 
 export const VISIT_WEBSITE = {
   type: 'VISIT_WEBSITE',
-  asyn: async function({ href }) {
-    let resp = await post('/visit-website-user', { href })
+  asyn: async function() {
+    let resp = await post('/visit-website-user')
     return resp.ok && {
         ...VISIT_WEBSITE_SUCCESS,
         user: resp.data
@@ -41,7 +41,7 @@ export const SIGNIN_SUCCESS = {
 
 export const SIGNIN_FAILED = {
   type: 'SIGNIN_FAILED',
-  asyn: REQUEST_ARTICLES 
+  asyn: REQUEST_ARTICLES
 }
 
 export const CHECK_SIGNIN = {

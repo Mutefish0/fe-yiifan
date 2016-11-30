@@ -24,7 +24,7 @@ let store = createStore(
   applyMiddleware(reduxAsyn)
 )
 
-store.dispatch({...VISIT_WEBSITE, href: window.location.href})
+store.dispatch(VISIT_WEBSITE)
 
 render(
   <Provider store={store}>
