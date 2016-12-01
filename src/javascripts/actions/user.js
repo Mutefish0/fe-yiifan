@@ -48,7 +48,7 @@ export const CHECK_SIGNIN = {
   type: 'CHECK_SIGNIN',
   asyn: async function() {
     let resp = await post('/check-sign-in')
-    return resp.ok && SIGNIN_SUCCESS || SIGNIN_FAILED
+    return resp.ok && SIGNIN_SUCCESS || REQUEST_ARTICLES
   }
 }
 

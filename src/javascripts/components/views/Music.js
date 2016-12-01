@@ -1,7 +1,11 @@
 import React from 'react'
+import Loading from '../modules/Loading'
 
 const Music = () => (
-  <div className="view-music">音乐-敬请期待</div>
+  <div className="view-music">
+    <Loading />
+    <div> 敬请期待 </div>
+  </div>
 )
 
 export default Music

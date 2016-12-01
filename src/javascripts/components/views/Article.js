@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import { Link } from 'react-router'
 import { REQUEST_ARTICLES, DELETE_ARTICLE } from '../../actions/article'
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
+import Loading from '../modules/Loading'
 import MarkdownIt from 'markdown-it'
 import hljs from 'highlight.js'
 
@@ -85,36 +86,44 @@ const Article = ({ articles,
                   isRequesting,
                   signin,
                   deleteArticle
-                }) => (
-  <div className="view-article">
-    <Link
-      to="/article/create"
-      className="create"
-      style={{display: signin && 'block' || 'none'}}
-    >
-      <i className="fa fa-plus" /> 创建文章
-    </Link>
-    <ReactCSSTransitionGroup
-      transitionName="article-item"
-      transitionEnterTimeout={800}
-      transitionLeaveTimeout={800}
-    >
-    { articles.map((article, index) => (
-      <Item
-        article={article}
-        key={article._id}
-        signin={signin}
-        deleteArticle={deleteArticle}
-      />
-    )) }
-    </ReactCSSTransitionGroup>
-  </div>
-)
+                }) =>
+{
+  if(!isRequesting) return (
+    <div className="view-article">
+      <Link
+        to="/article/create"
+        className="create"
+        style={{display: signin && 'block' || 'none'}}
+      >
+        <i className="fa fa-plus" /> 创建文章
+      </Link>
+      <ReactCSSTransitionGroup
+        transitionName="article-item"
+        transitionEnterTimeout={800}
+        transitionLeaveTimeout={800}
+      >
+      { articles.map((article, index) => (
+        <Item
+          article={article}
+          key={article._id}
+          signin={signin}
+          deleteArticle={deleteArticle}
+        />
+      )) }
+      </ReactCSSTransitionGroup>
+    </div>
+  )
+  else return (
+    <div className="view-article-loading">
+      <Loading />
+    </div>
+  )
+}
 
 export default connect(
   state => ({
     articles: state.article.list,
-    requesting: state.article.isRequesting,
+    isRequesting: state.article.isRequesting,
     signin: state.user.signin
   }),
   dispatch => ({

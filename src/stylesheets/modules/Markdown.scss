@@ -88,10 +88,12 @@
     }
   }
   code{
+    margin: 0 2px;
     background: $color-gray;
     color: white;
-    padding: 1px 2px;
+    padding: 0px 6px;
     border-radius: 2px;
+    font-family: Menlo, Consolas;
   }
   pre code{
     display: block;

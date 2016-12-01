@@ -1,0 +1,49 @@
+@font-face {
+	font-family: 'Comfortaa-Loading';
+	src: url('/fonts/Loading-Comfortaa-Regular.woff') format('woff');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@keyframes cursor-flash{
+	0%{
+		background: $color-warn;
+	}
+	60%{
+		background: $color-warn;
+	}
+	100%{
+		background: $color-background;
+	}
+}
+
+.module-loading-cursor-flash{
+	animation: cursor-flash 0.8s infinite;
+}
+
+.module-loading{
+  text-align: center;
+  padding: 18px 0;
+  .text-wrap{
+    font-size: 48px;
+    font-weight: bold;
+    color: $color-dark;
+    margin: 24px 0;
+    font-family: 'Comfortaa-Loading';
+		.cursor{
+			position: relative;
+			left: 0;
+			top: 8px;
+			margin-left: 4px;
+			display: inline-block;
+			height: 52px;
+			width: 4px;
+			background: $color-warn;
+		//	animation: cursor-flash 1.5s infinite;
+		}
+  }
+  .bar{
+    height: 32px;
+    width: 320px;
+  }
+}
