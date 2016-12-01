@@ -25,8 +25,8 @@ class Loading extends React.Component {
     ]
     this.durations = [
       800,
-      1200,
-      1500,
+      900,
+      900,
       1800,
       600,
       600,

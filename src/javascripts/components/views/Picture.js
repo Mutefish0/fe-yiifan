@@ -1,6 +1,7 @@
 import React from 'react'
 import Loading from '../modules/Loading'
 
+
 const Picture = () => (
   <div className="view-picture">
     <Loading />
