@@ -16,3 +16,6 @@
 
 # 在线预览
   [Demo](http://yiifan.xyz)
+
+# 注意
+  在mac下需要给`localhost`配`127.0.0.1`的host, 因为`webpack-dev-server`默认用的`localhost`, 而mac不识别
