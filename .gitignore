@@ -1,4 +1,4 @@
 node_modules
 public/bundle.js
-# ignore macOS .DS_Store
+# Ignore .DS_Store of macOS
 *.DS_Store
