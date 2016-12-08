@@ -1,16 +1,15 @@
 import React from 'react'
 import { connect } from 'react-redux'
 
-import { SIGNOUT } from '../../actions/user'
-
 import WeiboSvg from '../modules/WeiboSvg'
 import GithubSvg from '../modules/GithubSvg'
 import ZhihuSvg from '../modules/ZhihuSvg'
 import QQSvg from '../modules/QQSvg'
 import LoginSvg from '../modules/LoginSvg'
-import LogoutSvg from '../modules/LogoutSvg'
+import MenuSvg from '../modules/MenuSvg'
 import Modal from '../modules/Modal'
 import Signin from './Signin'
+import UserMenu from './UserMenu'
 
 let openModal
 
@@ -23,8 +22,14 @@ const Webhead = ({ user, signout }) => {
         shouldClose={user.signin}
       />
 
-    <span onClick={ user.signin && signout || openModal } className="sign-in-out">
-        { user.signin && LogoutSvg || LoginSvg }
+    <span className="sign-in-out">
+        { user.signin
+          && <span className="btn-menu">
+              { MenuSvg }
+              <span className="menu-wraper"> <UserMenu /> </span>
+             </span>
+          || <span onClick={openModal}>{ LoginSvg }</span>
+        }
       </span>
 
       <div className="user-profile">
@@ -56,11 +61,4 @@ const Webhead = ({ user, signout }) => {
   )
 }
 
-export default connect(
-  state => ({
-    user: state.user
-  }),
-  dispatch => ({
-      signout: _ => dispatch(SIGNOUT)
-  })
-)(Webhead)
+export default connect(state => ({user: state.user}))(Webhead)

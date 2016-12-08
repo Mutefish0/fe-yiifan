@@ -1,8 +1,6 @@
-let __ENVIRONMENT__ = window.__ENVIRONMENT__
-
 let exportObject = {
   development: {
-    apiOrigin: 'http://localhost',
+    apiOrigin: 'http://yiifan.dev',
     dev: true
   },
   production: {
@@ -11,4 +9,4 @@ let exportObject = {
   }
 }
 
-export default exportObject[__ENVIRONMENT__]
+export default exportObject[process.env.NODE_ENV]

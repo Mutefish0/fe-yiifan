@@ -64,3 +64,20 @@ export const SIGNOUT_SUCCESS = {
   type: 'SIGNOUT_SUCCESS',
   asyn: () => browserHistory.push('/article')
 }
+
+export const UPDATE_PROFILE = {
+  type: 'UPDATE_PROFILE',
+  asyn: async function({nickname, sex, intro, avatar, qq, weibo, github, zhihu}) {
+    let resp = await post('/set-user-info', {nickname, sex, intro, avatar, qq, weibo, github, zhihu})
+    return resp.ok && UPDATE_PROFILE_SUCCESS || UPDATE_PROFILE_FAILED
+  }
+}
+
+export const UPDATE_PROFILE_SUCCESS = {
+  type: 'UPDATE_PROFILE_SUCCESS',
+  asyn: VISIT_WEBSITE
+}
+
+export const UPDATE_PROFILE_FAILED = {
+  type: 'UPDATE_PROFILE_FAILED'
+}

@@ -1,9 +1,11 @@
 @import "./base";
 
 @import "./common/Webhead";
+@import "./common/Webfoot";
 @import "./common/Signin";
 @import "./common/Navi";
 @import "./common/Message";
+@import "./common/UserMenu";
 
 @import "./modules/Modal";
 @import "./modules/Markdown";
@@ -16,3 +18,4 @@
 @import "./views/Music";
 @import "./views/Picture";
 @import "./views/Todo";
+@import "./views/Setting";

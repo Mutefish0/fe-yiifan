@@ -32,7 +32,6 @@
   margin-top: 48px;
   .create{
     @extend .matieral-button;
-    @extend .none-default-link;
     display: block;
     line-height: 38px;
     width: 120px;
@@ -90,7 +89,6 @@
         .btn-detail{
           position: absolute;
           bottom: -18px;
-          @extend .none-default-link;
           width: 82px;
           border-radius: 24px;
           color: transparent;
@@ -121,7 +119,6 @@
       .edit{
         margin-right: 8px;
         border-radius: 12px;
-        @extend .none-default-link;
         padding: 0 8px;
         @include matieral-button($color-info);
         color: $color-background;

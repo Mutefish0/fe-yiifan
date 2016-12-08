@@ -23,7 +23,6 @@ $height-user-profile: 254px;
 
 .common-webhead {
   border-radius: 3px;
-  margin: 0.5rem 0;
   position: relative;
   height: 300px;
   animation: head-breath 20s infinite alternate;
@@ -35,8 +34,24 @@ $height-user-profile: 254px;
     width: 32px;
     height: 32px;
     @extend .button;
+    .btn-menu{
+      position: relative;
+    }
+    .btn-menu .menu-wraper{
+      display: none;
+      position: absolute;
+      z-index: 1;
+      top: -6px;
+      left: -98px;
+      width: 132px;
+      padding: 32px 0;
+      @extend .cursor-default;
+    }
+    .btn-menu:hover .menu-wraper{
+      display: block;
+    }
     svg path{
-      fill: $color-gray;
+      fill: $color-dark;
       transition: fill 0.5s;
     }
     &:hover svg path{

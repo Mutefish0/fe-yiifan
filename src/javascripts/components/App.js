@@ -1,6 +1,7 @@
 import React from 'react'
 import { Router, Route, IndexRoute, browserHistory } from 'react-router'
 import Webhead from './common/Webhead'
+import Webfoot from './common/Webfoot'
 import Navi from './common/Navi'
 import Message from './common/Message'
 import Article from './views/Article'
@@ -9,6 +10,7 @@ import ArticleEdit from './views/ArticleEdit'
 import Picture from './views/Picture'
 import Music from './views/Music'
 import Todo from './views/Todo'
+import Setting from './views/Setting'
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 
 const Frame = ({children}) => (
@@ -17,6 +19,7 @@ const Frame = ({children}) => (
     <Navi />
     { children }
     <Message />
+    <Webfoot />
   </div>
 )
 
@@ -31,6 +34,7 @@ const App = () => (
       <Route path='/picture' component={Picture} />
       <Route path='/music' component={Music} />
       <Route path='/todo' component={Todo} />
+      <Route path='/setting' component={Setting} />
     </Route>
   </Router>
 )

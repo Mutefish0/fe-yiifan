@@ -1,0 +1,33 @@
+@font-face {
+  font-family: 'Foot Josefin Sans';
+  src: url(/fonts/Foot-JosefinSans.woff);
+}
+
+.common-webfoot{
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: 'Foot Josefin Sans', sans-serif;
+  text-align: center;
+  font-size: 12px;
+  color: $color-gray;
+  margin-bottom: 8px;
+  .fa-code{
+    font-size: 15px;
+  }
+  .fa-copyright{
+    font-size: 14px;
+  }
+  i{
+    transition: transform 0.3s;
+  }
+  a:hover{
+    color: $color-info;
+    transition: color 0.6s;
+    i{
+      transform: scale3d(1.2,1.2,1.2);
+      transition: transform 0.3s;
+    }
+  }
+}

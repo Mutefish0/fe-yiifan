@@ -75,7 +75,6 @@
       border-radius: 3px;
     }
     .cancel{
-      @extend .none-default-link;
       @include matieral-button($color-warn);
       padding: 8px 48px;
       border-radius: 3px;

@@ -12,18 +12,9 @@ let bundleName = webpackConfig.output.filename
 if(environment == 'development') {
   fs.writeFileSync(staticPath + bundleName,
     `!function(){
-      window.__ENVIRONMENT__ = '${environment}';
       var script = document.createElement('script');
       script.src = '${publicPath + bundleName}';
       document.body.appendChild(script);
     }();`
-  )
-}
-
-else if(environment == 'production') {
-  let srcText = fs.readFileSync(staticPath + bundleName, {encoding: 'utf8'})
-  fs.writeFileSync(
-    staticPath + bundleName,
-    `window.__ENVIRONMENT__ = '${environment}';${srcText}`
   )
 }

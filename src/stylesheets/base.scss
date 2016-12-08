@@ -32,6 +32,8 @@ $color-gray: #5f6c72;
 
 a{
   @extend .cursor-pointer;
+  color: inherit;
+  text-decoration: none;
 }
 
 button, .button{
@@ -42,7 +44,8 @@ button, .button{
   outline: none;
 }
 
-html, body, .app{
+html, body, #app{
+  height: 100%;
   color:rgba(0,0,0,0.76);
   width: 100%;
   margin: 0;
@@ -52,6 +55,7 @@ html, body, .app{
   font-family:"PingFang SC", "Microsoft Yahei", sans-serif;
   @extend .cursor-default;
 }
+
 
 input{
   border:none;
@@ -64,11 +68,6 @@ input{
 
 .cursor-pointer{
   cursor: url('/images/cursor-pointer.png'), pointer;
-}
-
-.none-default-link{
-  text-decoration: none;
-  color: inherit;
 }
 
 
@@ -91,6 +90,10 @@ input{
 .root{
   width: 1180px;
   margin: 0 auto;
+  min-height: 100%;
+  position: relative;
+  padding: 6px 0 40px 0;
+  box-sizing: border-box;
 }
 
 @-webkit-keyframes router-fade-in{

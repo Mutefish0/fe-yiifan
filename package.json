@@ -3,8 +3,8 @@
   "version": "0.0.0",
   "description": "个人网站前端部分",
   "scripts": {
-    "start": "node envPreprocess --development && webpack-dev-server --hot --inline --progress --colors --history-api-fallback --content-base public/ --define process.env.NODE_ENV='\"development\"'",
-    "build": "webpack --progress --color --define process.env.NODE_ENV='\"production\"' && node envPreprocess --production && gulp compressjs"
+    "start": "node envPreprocess --development && webpack-dev-server --host 0.0.0.0 --hot --inline --progress --colors --history-api-fallback --content-base public/ --define process.env.NODE_ENV='\"development\"'",
+    "build": "webpack --progress --color --define process.env.NODE_ENV='\"production\"' && gulp compressjs"
   },
   "repository": {
     "type": "git"

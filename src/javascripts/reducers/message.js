@@ -17,7 +17,9 @@ import {
 import {
   SIGNIN_SUCCESS,
   SIGNIN_FAILED,
-  SIGNOUT_SUCCESS
+  SIGNOUT_SUCCESS,
+  UPDATE_PROFILE_SUCCESS,
+  UPDATE_PROFILE_FAILED,
 } from '../actions/user'
 
 const message = (state = {}, action) => {
@@ -75,6 +77,18 @@ const message = (state = {}, action) => {
         type: SIGNOUT_SUCCESS.type,
         msg: '登出成功',
         style: 'success'
+      }
+    case UPDATE_PROFILE_SUCCESS.type:
+      return {
+        type: UPDATE_PROFILE_SUCCESS.type,
+        msg: '更新信息成功',
+        style: 'success'
+      }
+    case UPDATE_PROFILE_FAILED.type:
+      return {
+        type: UPDATE_PROFILE_FAILED.type,
+        msg: '更新信息失败',
+        style: 'failed'
       }
     default:
       return state
